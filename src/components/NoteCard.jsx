@@ -19,14 +19,16 @@ export const NoteCard = ({
   const navigate = useNavigate();
   return (
     <div className="relative group h-fit">
-      <div
-        className="bg-amber-400 max-w-[450px] xl:min-h-[250px] lg:min-h-[300px] md:min-h-[280px] min-h-[300px] max-h-[500px] rounded-lg items-center m-auto p-5 text-white relative shadow-sm"
-        onClick={() => {
-          navigate(`/detail/${id}`);
-        }}
-      >
+      <div className="bg-amber-400 max-w-[450px] xl:min-h-[250px] lg:min-h-[300px] md:min-h-[280px] min-h-[300px] max-h-[500px] rounded-lg items-center m-auto p-5 text-white relative shadow-sm">
         <div className="flex justify-between items-center font-bold">
-          <h1 className="text-base">{title}</h1>
+          <h1
+            className="text-base cursor-pointer hover:underline"
+            onClick={() => {
+              navigate(`/detail/${id}`);
+            }}
+          >
+            {title}
+          </h1>
           <p className="text-sm">{showFormattedDate(createdAt)}</p>
         </div>
 
@@ -46,7 +48,7 @@ export const NoteCard = ({
                 className={`p-2 rounded-lg ${
                   statusName === "note"
                     ? "bg-emerald-500 hover:bg-emerald-600 "
-                    : "bg-orange-400 hover:bg-gray-500 hover:text-yellow-400"
+                    : "bg-teal-500 hover:bg-teal-600 "
                 }`}
                 onClick={(event) => {
                   event.stopPropagation();
@@ -62,11 +64,11 @@ export const NoteCard = ({
                 <span className="flex justify-center items-center">
                   {statusName === "note" ? (
                     <div>
-                      <BsFolderCheck size={20} />
+                      <BsFolderCheck size={20} title="Arsip" />
                     </div>
                   ) : (
                     <div>
-                      <BsFolderX size={20} />
+                      <BsFolderX size={20} title="Batalkan Arsip" />
                     </div>
                   )}
                 </span>
@@ -77,4 +79,14 @@ export const NoteCard = ({
       </div>
     </div>
   );
+};
+
+NoteCard.propTypes = {
+  note: PropTypes.object.isRequired,
+  statusName: PropTypes.string.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onChangeArchiveStatus: PropTypes.func.isRequired,
+  setData: PropTypes.func.isRequired,
+  getActiveNotes: PropTypes.func,
+  getArchivedNotes: PropTypes.func,
 };

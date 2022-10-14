@@ -10,10 +10,10 @@ export const NavigationBar = () => {
       </div>
       <div className="flex">
         <Link
-          to={"/archive"}
+          to={"/arsip"}
           className="border-solid border-4 rounded-full px-5 p-1 font-bold text-md hover:bg-green-500 hover:border-green-500 hover:text-white"
         >
-          Archive
+          Arsip
         </Link>
       </div>
     </nav>
