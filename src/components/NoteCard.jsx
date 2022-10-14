@@ -1,8 +1,10 @@
 import React from "react";
-import { showFormattedDate } from "../utils";
 import { useNavigate } from "react-router-dom";
-import PropTypes from "prop-types";
 import parser from "html-react-parser";
+import PropTypes from "prop-types";
+import { showFormattedDate } from "../utils";
+import { BsFolderCheck, BsFolderX } from "react-icons/bs";
+import { NoteDelete } from "./NoteDelete";
 
 export const NoteCard = ({
   note,
@@ -16,10 +18,63 @@ export const NoteCard = ({
   const { id, title, body, createdAt } = note;
   const navigate = useNavigate();
   return (
-    <div>
-      <p>{showFormattedDate(createdAt)}</p>
-      <h1 className="font-bold">{title}</h1>
-      <p>{parser(body)}</p>
+    <div className="relative group h-fit">
+      <div
+        className="bg-amber-400 max-w-[450px] xl:min-h-[250px] lg:min-h-[300px] md:min-h-[280px] min-h-[300px] max-h-[500px] rounded-lg items-center m-auto p-5 text-white relative shadow-sm"
+        onClick={() => {
+          navigate(`/detail/${id}`);
+        }}
+      >
+        <div className="flex justify-between items-center font-bold">
+          <h1 className="text-base">{title}</h1>
+          <p className="text-sm">{showFormattedDate(createdAt)}</p>
+        </div>
+
+        <div className="flex flex-col">
+          <p className="mt-3 text-sm">{parser(body)}</p>
+          <div className="absolute bottom-0 right-0 p-5">
+            <div className="flex gap-2">
+              <NoteDelete
+                id={id}
+                onDelete={onDelete}
+                setData={setData}
+                getActiveNotes={getActiveNotes}
+                getArchivedNotes={getArchivedNotes}
+                statusName={statusName}
+              />
+              <button
+                className={`p-2 rounded-lg ${
+                  statusName === "note"
+                    ? "bg-emerald-500 hover:bg-emerald-600 "
+                    : "bg-orange-400 hover:bg-gray-500 hover:text-yellow-400"
+                }`}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  if (statusName === "note") {
+                    onChangeArchiveStatus(id);
+                    setData(getActiveNotes);
+                  } else {
+                    onChangeArchiveStatus(id);
+                    setData(getArchivedNotes);
+                  }
+                }}
+              >
+                <span className="flex justify-center items-center">
+                  {statusName === "note" ? (
+                    <div>
+                      <BsFolderCheck size={20} />
+                    </div>
+                  ) : (
+                    <div>
+                      <BsFolderX size={20} />
+                    </div>
+                  )}
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

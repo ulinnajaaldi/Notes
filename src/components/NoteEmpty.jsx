@@ -5,7 +5,7 @@ import Kosong from "../image/Kosong.svg";
 export const NoteEmpty = ({ className }) => {
   return (
     <div className={className}>
-      <section class="mt-20">
+      <section className="mt-20">
         <img src={Kosong} alt="Kosong" className="flex items-center m-auto" />
         <div className="flex flex-col items-center">
           <h3 className="font-bold text-lg">Tidak ada catatan di sini...</h3>
