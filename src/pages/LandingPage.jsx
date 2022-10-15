@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import { NoteCard } from "../components/NoteCard";
 import { NoteEmpty } from "../components/NoteEmpty";
 import { NoteSearch } from "../components/NoteSearch";
+import { AddNote } from "../components/AddNote";
 
 export const LandingPage = () => {
   const [data, setData] = useState([]);
@@ -33,6 +34,11 @@ export const LandingPage = () => {
   return (
     <div>
       <NavigationBar />
+
+      <h1 className="mx-8 md:mx-16 text-center font-bold text-3xl mt-5 text-amber-400 ">
+        Daftar Catatan
+      </h1>
+
       <NoteSearch
         title={title}
         setSearchParamsHandler={setSearchParamsHandler}
@@ -55,6 +61,7 @@ export const LandingPage = () => {
           ))
         )}
       </div>
+      <AddNote />
     </div>
   );
 };

@@ -19,12 +19,12 @@ export const NoteCard = ({
   const navigate = useNavigate();
   return (
     <div className="relative group h-fit">
-      <div className="bg-amber-400 max-w-[450px] xl:min-h-[250px] lg:min-h-[300px] md:min-h-[280px] min-h-[300px] max-h-[500px] rounded-lg items-center m-auto p-5 text-white relative shadow-sm">
+      <div className="bg-amber-400 max-w-[450px] xl:min-h-[250px] lg:min-h-[300px] md:min-h-[280px] min-h-[300px] rounded-lg items-center m-auto p-5 text-white relative drop-shadow-md">
         <div className="flex justify-between items-center font-bold">
           <h1
             className="text-base cursor-pointer hover:underline"
             onClick={() => {
-              navigate(`/detail/${id}`);
+              navigate(`/notes/${id}`);
             }}
           >
             {title}
@@ -33,7 +33,12 @@ export const NoteCard = ({
         </div>
 
         <div className="flex flex-col">
-          <p className="mt-3 text-sm">{parser(body)}</p>
+          <p className="mt-3 text-sm">
+            {parser(body)}
+            <br />
+            <br />
+            <br />
+          </p>
           <div className="absolute bottom-0 right-0 p-5">
             <div className="flex gap-2">
               <NoteDelete

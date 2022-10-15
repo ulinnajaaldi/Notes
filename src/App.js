@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { LandingPage } from "./pages/LandingPage";
 import { ArchivePage } from "./pages/ArchivePage";
 import { DetailPage } from "./pages/DetailPage";
+import { AddNotePage } from "./pages/AddNotePage";
 
 export const App = () => {
   const paths = [
@@ -15,8 +16,12 @@ export const App = () => {
       element: <ArchivePage />,
     },
     {
-      path: "/detail/:id",
+      path: "/notes/:id",
       element: <DetailPage />,
+    },
+    {
+      path: "/notes/new",
+      element: <AddNotePage />,
     },
   ];
 

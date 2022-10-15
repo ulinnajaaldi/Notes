@@ -4,7 +4,7 @@ import Logo from "../image/Logo.svg";
 
 export const NavigationBarHome = () => {
   return (
-    <nav className="flex justify-between px-8 md:px-16 py-4 border-b border-black">
+    <nav className="flex justify-between px-8 md:px-16 py-4 border-b-2 border-slate-300">
       <div className="flex">
         <img src={Logo} alt="Logo" />
       </div>
