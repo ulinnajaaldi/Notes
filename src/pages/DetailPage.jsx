@@ -13,7 +13,7 @@ export const DetailPage = () => {
     <div>
       <NavigationBarHome />
       {!data ? (
-        <NoteEmpty className="absolute top-36 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+        <NoteEmpty className="absolute top-72 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
       ) : (
         !!data && <NoteDetail note={data} />
       )}

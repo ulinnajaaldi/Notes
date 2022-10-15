@@ -4,6 +4,7 @@ import { LandingPage } from "./pages/LandingPage";
 import { ArchivePage } from "./pages/ArchivePage";
 import { DetailPage } from "./pages/DetailPage";
 import { AddNotePage } from "./pages/AddNotePage";
+import { PageEmpty } from "./components/PageEmpty";
 
 export const App = () => {
   const paths = [
@@ -22,6 +23,10 @@ export const App = () => {
     {
       path: "/notes/new",
       element: <AddNotePage />,
+    },
+    {
+      path: "/*" || "/notes/*",
+      element: <PageEmpty />,
     },
   ];
 
