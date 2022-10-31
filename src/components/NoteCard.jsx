@@ -2,21 +2,43 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import parser from "html-react-parser";
 import PropTypes from "prop-types";
-import { showFormattedDate } from "../utils";
+import { showFormattedDate } from "../utils/showFormattedDate";
 import { BsFolderCheck, BsFolderX } from "react-icons/bs";
 import { NoteDelete } from "./NoteDelete";
+import { archiveNote, unarchiveNote } from "../utils/network-data";
+import { useLocalization } from "../hooks/useLocalization";
+import { LocalizationContext } from "../contexts/LocaleContext";
 
 export const NoteCard = ({
   note,
   statusName,
-  onDelete,
-  onChangeArchiveStatus,
-  setData,
   getActiveNotes,
   getArchivedNotes,
 }) => {
   const { id, title, body, createdAt } = note;
+  const { localization } = React.useContext(LocalizationContext);
+  const language = localization === "id" ? "en" : "id";
+  const text = useLocalization("noteCard");
   const navigate = useNavigate();
+
+  const archiveNoteHandler = async (id) => {
+    try {
+      await archiveNote(id);
+      getActiveNotes();
+    } catch (error) {
+      throw new Error(`Error: ${error}`);
+    }
+  };
+
+  const unarchiveNoteHandler = async (id) => {
+    try {
+      await unarchiveNote(id);
+      getArchivedNotes();
+    } catch (error) {
+      throw new Error(`Error: ${error}`);
+    }
+  };
+
   return (
     <div className="relative group h-fit">
       <div className="bg-amber-400 max-w-[450px] xl:min-h-[250px] lg:min-h-[300px] md:min-h-[280px] min-h-[300px] rounded-lg items-center m-auto p-5 text-white relative drop-shadow-md">
@@ -29,7 +51,7 @@ export const NoteCard = ({
           >
             {title}
           </h1>
-          <p className="text-sm">{showFormattedDate(createdAt)}</p>
+          <p className="text-sm">{showFormattedDate(createdAt, language)}</p>
         </div>
 
         <div className="flex flex-col">
@@ -43,8 +65,6 @@ export const NoteCard = ({
             <div className="flex gap-2">
               <NoteDelete
                 id={id}
-                onDelete={onDelete}
-                setData={setData}
                 getActiveNotes={getActiveNotes}
                 getArchivedNotes={getArchivedNotes}
                 statusName={statusName}
@@ -55,25 +75,23 @@ export const NoteCard = ({
                     ? "bg-emerald-500 hover:bg-emerald-600 "
                     : "bg-teal-500 hover:bg-teal-600 "
                 }`}
-                onClick={(event) => {
+                onClick={async (event) => {
                   event.stopPropagation();
                   if (statusName === "note") {
-                    onChangeArchiveStatus(id);
-                    setData(getActiveNotes);
+                    archiveNoteHandler(id);
                   } else {
-                    onChangeArchiveStatus(id);
-                    setData(getArchivedNotes);
+                    unarchiveNoteHandler(id);
                   }
                 }}
               >
                 <span className="flex justify-center items-center">
                   {statusName === "note" ? (
                     <div>
-                      <BsFolderCheck size={20} title="Arsip" />
+                      <BsFolderCheck size={20} title={text.arch} />
                     </div>
                   ) : (
                     <div>
-                      <BsFolderX size={20} title="Batalkan Arsip" />
+                      <BsFolderX size={20} title={text.unarch} />
                     </div>
                   )}
                 </span>
@@ -89,9 +107,6 @@ export const NoteCard = ({
 NoteCard.propTypes = {
   note: PropTypes.object.isRequired,
   statusName: PropTypes.string.isRequired,
-  onDelete: PropTypes.func.isRequired,
-  onChangeArchiveStatus: PropTypes.func.isRequired,
-  setData: PropTypes.func.isRequired,
   getActiveNotes: PropTypes.func,
   getArchivedNotes: PropTypes.func,
 };

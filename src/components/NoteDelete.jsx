@@ -1,15 +1,27 @@
 import React from "react";
 import { BsTrash } from "react-icons/bs";
 import PropTypes from "prop-types";
+import { deleteNote } from "../utils/network-data";
 
 export const NoteDelete = ({
   id,
-  onDelete,
-  setData,
   getActiveNotes,
   getArchivedNotes,
   statusName,
 }) => {
+  const noteDeleteHandler = async (id) => {
+    try {
+      await deleteNote(id);
+      if (statusName === "note") {
+        getActiveNotes();
+      } else {
+        getArchivedNotes();
+      }
+    } catch (error) {
+      throw new Error(`Error: ${error}`);
+    }
+  };
+
   return (
     <div>
       <button
@@ -17,13 +29,7 @@ export const NoteDelete = ({
         className="p-2 rounded-lg bg-red-400 hover:bg-red-500 text-white "
         onClick={(event) => {
           event.stopPropagation();
-          if (statusName === "note") {
-            onDelete(id);
-            setData(getActiveNotes);
-          } else {
-            onDelete(id);
-            setData(getArchivedNotes);
-          }
+          noteDeleteHandler(id);
         }}
       >
         <BsTrash size={20} />
@@ -34,8 +40,6 @@ export const NoteDelete = ({
 
 NoteDelete.propTypes = {
   id: PropTypes.string.isRequired,
-  onDelete: PropTypes.func.isRequired,
-  setData: PropTypes.func.isRequired,
   getActiveNotes: PropTypes.func,
   getArchivedNotes: PropTypes.func,
   statusName: PropTypes.string.isRequired,
