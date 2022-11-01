@@ -1,3 +1,62 @@
+const registerPage = {
+  id: {
+    heroTitle: "Atur berbagai tugasmu disini!",
+    heroText: "Praktis, cepat dan gratis!",
+    labelName: "Nama",
+    namePlaceholder: "Masukan nama anda",
+    emailPlaceholder: "Masukan email anda",
+    passwordPlaceholder: "Masukan password anda",
+    confirmPassword: "Konfirmasi Password",
+    passwordConfPlaceholder: "Masukan konfirmasi password anda",
+    registerBtn: "Daftar",
+    accountAsk: "Sudah memiliki akun? ",
+    loginAsk: "Masuk disini",
+  },
+  en: {
+    heroTitle: "Organize your various tasks!",
+    heroText: "Practical, fast and free!",
+    labelName: "Name",
+    namePlaceholder: "Enter your name",
+    emailPlaceholder: "Enter your email",
+    passwordPlaceholder: "Enter your password",
+    confirmPassword: "Confirm Password",
+    passwordConfPlaceholder: "Enter your password confirmation",
+    registerBtn: "Register",
+    accountAsk: "Already have an account? ",
+    loginAsk: "Login here",
+  },
+};
+
+const loginPage = {
+  id: {
+    heroTitle: "Atur berbagai tugasmu disini!",
+    heroText: "Praktis, cepat dan gratis!",
+    emailPlaceholder: "Masukan email anda",
+    passwordPlaceholder: "Masukan password anda",
+    loginBtn: "Masuk",
+    accountAsk: "Belum memiliki akun? ",
+    registerAsk: "Daftar disini",
+  },
+  en: {
+    heroTitle: "Organize your various tasks!",
+    heroText: "Practical, fast and free!",
+    emailPlaceholder: "Enter your email",
+    passwordPlaceholder: "Enter your password",
+    loginBtn: "Login",
+    accountAsk: "Don't have an account yet? ",
+    registerAsk: "Register here",
+  },
+};
+
+const navFront = {
+  id: {
+    language: "Bahasa",
+  },
+  en: {
+    language: "Language",
+  },
+};
+
 const noteSearch = {
   id: {
     placeholder: "Cari catatan disini...",
@@ -76,6 +135,9 @@ const archivePage = {
 };
 
 export const datas = {
+  registerPage,
+  loginPage,
+  navFront,
   noteSearch,
   noteCard,
   noteEmpty,
