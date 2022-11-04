@@ -7,7 +7,7 @@ import { PageEmpty } from "../components/PageEmpty";
 import { LoginPage } from "../pages/LoginPage";
 import { RegisterPage } from "../pages/RegisterPage";
 
-export const path = [
+export const paths = [
   {
     path: "/",
     element: (

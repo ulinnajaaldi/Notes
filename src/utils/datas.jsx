@@ -1,3 +1,5 @@
+import ReactCountryFlag from "react-country-flag";
+
 const registerPage = {
   id: {
     heroTitle: "Atur berbagai tugasmu disini!",
@@ -11,6 +13,7 @@ const registerPage = {
     registerBtn: "Daftar",
     accountAsk: "Sudah memiliki akun? ",
     loginAsk: "Masuk disini",
+    passwordAlert: "Password tidak sama",
   },
   en: {
     heroTitle: "Organize your various tasks!",
@@ -24,6 +27,7 @@ const registerPage = {
     registerBtn: "Register",
     accountAsk: "Already have an account? ",
     loginAsk: "Login here",
+    passwordAlert: "Password do not match",
   },
 };
 
@@ -50,10 +54,32 @@ const loginPage = {
 
 const navFront = {
   id: {
-    language: "Bahasa",
+    flag: (
+      <ReactCountryFlag
+        countryCode="ID"
+        svg
+        style={{
+          width: "1.7em",
+          height: "1.7em",
+        }}
+        className="rounded-lg hover:zoom"
+        title="Ganti Bahasa"
+      />
+    ),
   },
   en: {
-    language: "Language",
+    flag: (
+      <ReactCountryFlag
+        countryCode="GB"
+        svg
+        style={{
+          width: "1.7em",
+          height: "1.7em",
+        }}
+        className="rounded-lg"
+        title="Change Language"
+      />
+    ),
   },
 };
 
@@ -119,9 +145,9 @@ const addNotePage = {
     inputTextPlaceholder: "Isi...",
   },
   en: {
-    header: "Tambah Catatan Baru",
-    inputTitlePlaceholder: "Judul...",
-    inputTextPlaceholder: "Isi...",
+    header: "Add New Note",
+    inputTitlePlaceholder: "Title...",
+    inputTextPlaceholder: "Contents...",
   },
 };
 

@@ -61,8 +61,6 @@ export const ArchivePage = () => {
 
   return (
     <div>
-      <NavigationBarHome />
-
       <h1 className="mx-8 md:mx-16 text-center font-bold text-3xl mt-5 text-amber-400 ">
         {text.header}
       </h1>

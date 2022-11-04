@@ -5,3 +5,7 @@
 body {
   background-color: #efefef;
 }
+
+[data-theme="dark"] {
+  --background-color: #1e1e2e;
+}

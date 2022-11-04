@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useMemo, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import { NavigationBar } from "./components/NavigationBar";
 import { AuthorizationContext } from "./contexts/LocaleContext";
 import { getUserLogged } from "./utils/network-data";
-import { path } from "./routes/paths";
+import { paths } from "./routes/paths";
 import { LocalizationContext } from "./contexts/LocaleContext";
 import { ThemeContext } from "./contexts/LocaleContext";
+import { NavigationBarFront } from "./components/NavigationBarFront";
 
 export const App = () => {
   const [authUser, setAuthUser] = useState(null);
@@ -22,12 +22,30 @@ export const App = () => {
     }
   };
 
-  // useEffect(() => {
-  //   initialDataUser();
-  //   if(theme === 'dark'){
+  useEffect(() => {
+    initialDataUser();
+    if (theme === "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+      document.body.classList.add("dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      document.body.classList.remove("dark");
+    }
+  }, []);
 
-  //   }
-  // });
+  const toggleTheme = () => {
+    localStorage.setItem("theme", theme === "light" ? "dark" : "light");
+    setTheme((prevState) => (prevState === "light" ? "dark" : "light"));
+
+    if (theme === "dark") {
+      document.documentElement.setAttribute("data-theme", "light");
+      document.body.classList.remove("dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
+      document.body.classList.add("dark");
+    }
+  };
+
   const toggleLocalization = () => {
     localStorage.setItem("localization", localization === "id" ? "en" : "id");
     setLocalization((prevState) => (prevState === "id" ? "en" : "id"));
@@ -49,18 +67,32 @@ export const App = () => {
     [localization]
   );
 
+  const themeContextValue = useMemo(
+    () => ({
+      theme,
+      toggleTheme,
+    }),
+
+    [theme]
+  );
+
   return (
     <AuthorizationContext.Provider value={authContextValue}>
       <LocalizationContext.Provider value={localizationContextValue}>
-        <>
-          <main>
-            <Routes>
-              {path.map((item, index) => (
-                <Route key={index} {...item} />
-              ))}
-            </Routes>
-          </main>
-        </>
+        <ThemeContext.Provider value={themeContextValue}>
+          <>
+            <header>
+              <NavigationBarFront />
+            </header>
+            <main>
+              <Routes>
+                {paths.map((item, index) => (
+                  <Route key={index} {...item} />
+                ))}
+              </Routes>
+            </main>
+          </>
+        </ThemeContext.Provider>
       </LocalizationContext.Provider>
     </AuthorizationContext.Provider>
   );

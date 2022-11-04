@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { NavigationBarHome } from "../components/NavigationBarHome";
 import { useNavigate } from "react-router-dom";
 import { addNote } from "../utils/network-data";
 import { AiOutlineCheck } from "react-icons/ai";
@@ -27,8 +26,6 @@ export const AddNotePage = () => {
 
   return (
     <div>
-      <NavigationBarHome />
-
       <h1 className="mx-8 md:mx-16 text-center font-bold text-3xl mt-5 text-amber-400 ">
         {text.header}
       </h1>

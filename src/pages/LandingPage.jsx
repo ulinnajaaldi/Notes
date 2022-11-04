@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { NavigationBar } from "../components/NavigationBar";
 import { NoteCard } from "../components/NoteCard";
 import { NoteEmpty } from "../components/NoteEmpty";
 import { NoteSearch } from "../components/NoteSearch";
@@ -61,8 +60,6 @@ export const LandingPage = () => {
 
   return (
     <div>
-      <NavigationBar />
-
       <h1 className="mx-8 md:mx-16 text-center font-bold text-3xl mt-5 text-amber-400 ">
         {text.header}
       </h1>

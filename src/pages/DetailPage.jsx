@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { NavigationBarHome } from "../components/NavigationBarHome";
 import { NoteEmpty } from "../components/NoteEmpty";
 import { NoteDetail } from "../components/NoteDetail";
 import { getNote } from "../utils/network-data";
@@ -35,7 +34,6 @@ export const DetailPage = () => {
         <OnLoading />
       ) : (
         <div>
-          <NavigationBarHome />
           {!data ? (
             <NoteEmpty className="absolute top-72 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
           ) : (
