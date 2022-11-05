@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { NavigationBarHome } from "../components/NavigationBarHome";
 import { NoteCard } from "../components/NoteCard";
 import { NoteEmpty } from "../components/NoteEmpty";
 import { NoteSearch } from "../components/NoteSearch";

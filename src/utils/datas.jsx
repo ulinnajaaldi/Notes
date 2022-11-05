@@ -66,6 +66,8 @@ const navFront = {
         title="Ganti Bahasa"
       />
     ),
+    archive: "Arsip",
+    home: "Beranda",
   },
   en: {
     flag: (
@@ -80,15 +82,17 @@ const navFront = {
         title="Change Language"
       />
     ),
+    archive: "Archive",
+    home: "Home",
   },
 };
 
 const noteSearch = {
   id: {
-    placeholder: "Cari catatan disini...",
+    placeholder: "Cari catatanmu disini...",
   },
   en: {
-    placeholder: "Cari catatan disini...",
+    placeholder: "Search your notes here...",
   },
 };
 
@@ -98,8 +102,17 @@ const noteCard = {
     unarch: "Batalkan Arsip",
   },
   en: {
-    arch: "Arsip",
-    unarch: "Batalkan Arsip",
+    arch: "Archive",
+    unarch: "Cancel Arsip",
+  },
+};
+
+const noteDelete = {
+  id: {
+    delete: "Hapus",
+  },
+  en: {
+    delete: "Delete",
   },
 };
 
@@ -110,7 +123,7 @@ const noteEmpty = {
     ptwo: "Anda dengan cara terbaik!",
   },
   en: {
-    none: "Tidak ada catatan di sini...",
+    none: "No notes here...",
     p: "Add notes and get organized",
     ptwo: "in the best possible way!",
   },
@@ -123,9 +136,8 @@ const pageEmpty = {
       "Tapi jangan khawatir, Anda dapat menemukan banyak hal lain diberanda kami.",
   },
   en: {
-    opps: "Opps, kami tidak dapat menemukan halaman ini.",
-    massage:
-      "Tapi jangan khawatir, Anda dapat menemukan banyak hal lain diberanda kami.",
+    opps: "Opps, we couldn' find this page.",
+    massage: "But don't worry, you can find many other things on our homepage.",
   },
 };
 
@@ -134,7 +146,7 @@ const landingPage = {
     header: "Daftar Catatan",
   },
   en: {
-    header: "Daftar Catatan",
+    header: "Notes List",
   },
 };
 
@@ -156,7 +168,7 @@ const archivePage = {
     header: "Daftar Catatan Arsip",
   },
   en: {
-    header: "Daftar Catatan Arsip",
+    header: "Archive Notes List",
   },
 };
 
@@ -166,6 +178,7 @@ export const datas = {
   navFront,
   noteSearch,
   noteCard,
+  noteDelete,
   noteEmpty,
   pageEmpty,
   landingPage,

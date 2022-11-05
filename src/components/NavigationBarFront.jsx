@@ -25,18 +25,26 @@ export const NavigationBarFront = () => {
   };
 
   return (
-    <nav className="flex justify-between items-center px-8 md:px-16 py-4 border-b-2 border-slate-300">
+    <nav className="flex justify-between items-center px-8 md:px-16 py-4 border-b-2 border-slate-300 dark:bg-slate-400">
       <div className="flex">
         <img src={Logo} alt="Logo" />
       </div>
-      <div className="flex items-center">
+      <div className="grid-cols-2 items-center">
         {authUser && (
-          <Link
-            to={"/arsip"}
-            className="border-solid border-4 rounded-full px-5 p-1 font-bold text-md hover:bg-green-500 hover:border-green-500 hover:text-white"
-          >
-            Arsip
-          </Link>
+          <div>
+            <Link
+              to={"/"}
+              className="border-solid border-4 mx-1 rounded-full px-5 p-1 font-bold text-md hover:bg-green-500 hover:border-green-500 hover:text-white"
+            >
+              {text.home}
+            </Link>
+            <Link
+              to={"/arsip"}
+              className="border-solid border-4 mx-1 rounded-full px-5 p-1 font-bold text-md hover:bg-green-500 hover:border-green-500 hover:text-white"
+            >
+              {text.archive}
+            </Link>
+          </div>
         )}
       </div>
       <div className="flex items-center gap-4">

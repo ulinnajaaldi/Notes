@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-color: #efefef;
+  background-color: var(--background-color);
 }
 
 [data-theme="dark"] {

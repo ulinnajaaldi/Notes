@@ -2,6 +2,7 @@ import React from "react";
 import { BsTrash } from "react-icons/bs";
 import PropTypes from "prop-types";
 import { deleteNote } from "../utils/network-data";
+import { useLocalization } from "../hooks/useLocalization";
 
 export const NoteDelete = ({
   id,
@@ -9,6 +10,8 @@ export const NoteDelete = ({
   getArchivedNotes,
   statusName,
 }) => {
+  const text = useLocalization("noteDelete");
+
   const noteDeleteHandler = async (id) => {
     try {
       await deleteNote(id);
@@ -25,7 +28,7 @@ export const NoteDelete = ({
   return (
     <div>
       <button
-        title="Hapus"
+        title={text.delete}
         className="p-2 rounded-lg bg-red-400 hover:bg-red-500 text-white "
         onClick={(event) => {
           event.stopPropagation();

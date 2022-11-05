@@ -17,7 +17,7 @@ export const NoteCard = ({
 }) => {
   const { id, title, body, createdAt } = note;
   const { localization } = React.useContext(LocalizationContext);
-  const language = localization === "id" ? "en" : "id";
+  const language = localization === "id" ? "en-US" : "id-ID";
   const text = useLocalization("noteCard");
   const navigate = useNavigate();
 

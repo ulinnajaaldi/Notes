@@ -1,11 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useMemo, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import { AuthorizationContext } from "./contexts/LocaleContext";
+import {
+  AuthorizationContext,
+  LocalizationContext,
+  ThemeContext,
+} from "./contexts/LocaleContext";
 import { getUserLogged } from "./utils/network-data";
 import { paths } from "./routes/paths";
-import { LocalizationContext } from "./contexts/LocaleContext";
-import { ThemeContext } from "./contexts/LocaleContext";
 import { NavigationBarFront } from "./components/NavigationBarFront";
 
 export const App = () => {
@@ -24,12 +26,14 @@ export const App = () => {
 
   useEffect(() => {
     initialDataUser();
-    if (theme === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
-      document.body.classList.add("dark");
-    } else {
+    if (theme === "light") {
       document.documentElement.setAttribute("data-theme", "light");
       document.body.classList.remove("dark");
+      console.log("dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
+      document.body.classList.add("dark");
+      console.log("light");
     }
   }, []);
 
@@ -37,12 +41,12 @@ export const App = () => {
     localStorage.setItem("theme", theme === "light" ? "dark" : "light");
     setTheme((prevState) => (prevState === "light" ? "dark" : "light"));
 
-    if (theme === "dark") {
-      document.documentElement.setAttribute("data-theme", "light");
-      document.body.classList.remove("dark");
-    } else {
+    if (theme === "light") {
       document.documentElement.setAttribute("data-theme", "dark");
       document.body.classList.add("dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      document.body.classList.remove("dark");
     }
   };
 
