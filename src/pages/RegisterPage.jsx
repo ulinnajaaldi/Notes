@@ -34,7 +34,7 @@ export const RegisterPage = () => {
             {text.heroText}
           </h3>
         </div>
-        <div className="md:w-96 md:mt-32 w-80 mt-10">
+        <div className="md:w-96 md:mt-16 w-80 mt-10">
           <div className="md:absolute md:scale-0 text-primary dark:text-secondary">
             <h3 className="font-bold text-2xl">{text.registerLabel}</h3>
             <p className="font-semibold">{text.registerText}</p>
