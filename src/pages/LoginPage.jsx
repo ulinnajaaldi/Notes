@@ -25,8 +25,8 @@ export const LoginPage = () => {
 
   return (
     <div>
-      <section className="mt-5 flex justify-center gap-32">
-        <div className="text-center md:relative md:scale-100 md:visible invisible absolute scale-0">
+      <section className="lg:mt-5 flex justify-center lg:gap-32">
+        <div className="text-center md:relative md:scale-75 lg:scale-100 md:visible invisible absolute scale-0">
           <img src={GambarUtama} alt="gambar-utama" />
           <h1 className="font-bold text-5xl w-96 text-primary dark:text-secondary ">
             {text.heroTitle}
@@ -35,7 +35,7 @@ export const LoginPage = () => {
             {text.heroText}
           </h3>
         </div>
-        <div className="md:w-96 md:mt-32 w-80 mt-10">
+        <div className="md:w-96 w-80 my-10 md:my-32 md:px-16 lg:px-0 ">
           <div className="md:absolute md:scale-0 text-primary dark:text-secondary">
             <h3 className="font-bold text-2xl">{text.loginLabel}</h3>
             <p className="font-semibold">{text.loginText}</p>
@@ -46,7 +46,7 @@ export const LoginPage = () => {
               signIn({ email, password });
             }}
           >
-            <div className="block mx-auto mt-5 ">
+            <div className="block mx-auto mt-5">
               <label className=" block text-sm font-medium text-primary dark:text-secondary">
                 Email
               </label>
