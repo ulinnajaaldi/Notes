@@ -29,11 +29,9 @@ export const App = () => {
     if (theme === "light") {
       document.documentElement.setAttribute("data-theme", "light");
       document.body.classList.remove("dark");
-      console.log("dark");
     } else {
       document.documentElement.setAttribute("data-theme", "dark");
       document.body.classList.add("dark");
-      console.log("light");
     }
   }, []);
 

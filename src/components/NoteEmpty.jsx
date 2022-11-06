@@ -11,8 +11,8 @@ export const NoteEmpty = ({ className }) => {
       <section className="mt-20">
         <img src={Kosong} alt="Kosong" className="flex items-center m-auto" />
         <div className="flex flex-col items-center">
-          <h3 className="font-bold text-lg">{text.none}</h3>
-          <p className="text-sm text-center">
+          <h3 className="font-bold text-lg dark:text-secondary">{text.none}</h3>
+          <p className="text-sm text-center dark:text-secondary">
             {text.p} <br />
             {text.pbr}
           </p>

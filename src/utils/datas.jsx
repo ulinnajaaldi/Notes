@@ -59,15 +59,16 @@ const navFront = {
         countryCode="ID"
         svg
         style={{
-          width: "1.7em",
-          height: "1.7em",
+          width: "1.2em",
+          height: "1.2em",
         }}
-        className="rounded-lg hover:zoom"
         title="Ganti Bahasa"
       />
     ),
     archive: "Arsip",
     home: "Beranda",
+    changeClr: "Ganti Skema Warna",
+    logout: "Keluar",
   },
   en: {
     flag: (
@@ -75,15 +76,16 @@ const navFront = {
         countryCode="GB"
         svg
         style={{
-          width: "1.7em",
-          height: "1.7em",
+          width: "1.2em",
+          height: "1.2em",
         }}
-        className="rounded-lg"
         title="Change Language"
       />
     ),
     archive: "Archive",
     home: "Home",
+    changeClr: "Change Color Scheme",
+    logout: "Exit",
   },
 };
 
@@ -155,11 +157,13 @@ const addNotePage = {
     header: "Tambah Catatan Baru",
     inputTitlePlaceholder: "Judul...",
     inputTextPlaceholder: "Isi...",
+    save: "Simpan",
   },
   en: {
     header: "Add New Note",
     inputTitlePlaceholder: "Title...",
     inputTextPlaceholder: "Contents...",
+    save: "Save",
   },
 };
 
@@ -169,6 +173,15 @@ const archivePage = {
   },
   en: {
     header: "Archive Notes List",
+  },
+};
+
+const addNote = {
+  id: {
+    add: "Tambah Note",
+  },
+  en: {
+    add: "Add Note",
   },
 };
 
@@ -184,4 +197,5 @@ export const datas = {
   landingPage,
   addNotePage,
   archivePage,
+  addNote,
 };

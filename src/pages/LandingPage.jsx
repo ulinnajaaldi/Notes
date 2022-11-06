@@ -51,7 +51,7 @@ export const LandingPage = () => {
       } else {
         setData(
           tempData.filter((note) =>
-            note.title.toLowerCase().include(title.toLowerCase)
+            note.title.toLowerCase().includes(title.toLowerCase())
           )
         );
       }

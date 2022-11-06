@@ -42,7 +42,7 @@ export const AddNotePage = () => {
         <div className="mx-8 md:mx-16">
           <div className="my-5">
             <input
-              className="w-full text-lg font-semibold px-6 py-4 rounded-xl text-slate-500 bg-slate-50 border-2 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-slate-400 "
+              className="w-full text-lg font-semibold px-6 py-4 rounded-xl text-slate-500 bg-slate-50 border-2 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-slate-400 dark:bg-gray-600 dark:text-secondary"
               type="text"
               name="title"
               placeholder={text.inputTitlePlaceholder}
@@ -54,7 +54,7 @@ export const AddNotePage = () => {
 
           <div>
             <textarea
-              className="w-full text-lg px-6 min-h-[330px] py-4 rounded-xl text-slate-500 bg-slate-50 border-2 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-slate-400 "
+              className="w-full text-lg px-6 min-h-[330px] py-4 rounded-xl text-slate-500 bg-slate-50 border-2 border-slate-300 placeholder-slate-400 focus:outline-none focus:border-slate-400 dark:bg-gray-600 dark:text-secondary"
               placeholder={text.inputTextPlaceholder}
               value={body}
               onChange={(event) => {
@@ -65,7 +65,7 @@ export const AddNotePage = () => {
         </div>
         <div className="fixed right-0 bottom-0 z-50">
           <button className="p-3 mx-8 md:mx-16 my-6 rounded-full text-white bg-sky-400 hover:bg-sky-500 drop-shadow-lg">
-            <AiOutlineCheck size={25} title="Simpan" />
+            <AiOutlineCheck size={25} title={text.save} />
           </button>
         </div>
       </form>
