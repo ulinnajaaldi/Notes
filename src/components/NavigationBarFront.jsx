@@ -24,7 +24,7 @@ export const NavigationBarFront = () => {
   };
 
   return (
-    <nav className="flex justify-between items-center px-8 md:px-16 py-4 border-b-2 border-slate-300 dark:border-slate-700">
+    <nav className="flex md:justify-between items-center px-8 md:px-16 md:flex-row flex-col gap-3 py-4 border-b-2 border-slate-300 dark:border-slate-700">
       <div className="flex">
         <img src={Logo} alt="Logo" />
       </div>

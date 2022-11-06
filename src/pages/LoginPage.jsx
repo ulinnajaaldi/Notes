@@ -25,8 +25,8 @@ export const LoginPage = () => {
 
   return (
     <div>
-      <section className="mt-5 flex justify-center gap-32" data-aos="zoom-in">
-        <div className="text-center">
+      <section className="mt-5 flex justify-center gap-32">
+        <div className="text-center md:relative md:scale-100 md:visible invisible absolute scale-0">
           <img src={GambarUtama} alt="gambar-utama" />
           <h1 className="font-bold text-5xl w-96 text-primary dark:text-secondary ">
             {text.heroTitle}
@@ -35,7 +35,11 @@ export const LoginPage = () => {
             {text.heroText}
           </h3>
         </div>
-        <div className="w-96 mt-32">
+        <div className="md:w-96 md:mt-32 w-80 mt-10">
+          <div className="md:absolute md:scale-0 text-primary dark:text-secondary">
+            <h3 className="font-bold text-2xl">{text.loginLabel}</h3>
+            <p className="font-semibold">{text.loginText}</p>
+          </div>
           <form
             onSubmit={(event) => {
               event.preventDefault();

@@ -14,6 +14,8 @@ const registerPage = {
     accountAsk: "Sudah memiliki akun? ",
     loginAsk: "Masuk disini",
     passwordAlert: "Password tidak sama",
+    registerLabel: "Daftar Sekarang!",
+    registerText: "Untuk pengalaman yang baru",
   },
   en: {
     heroTitle: "Organize your various tasks!",
@@ -28,6 +30,8 @@ const registerPage = {
     accountAsk: "Already have an account? ",
     loginAsk: "Login here",
     passwordAlert: "Password do not match",
+    registerLabel: "Register Now!",
+    registerText: "To get a new experience",
   },
 };
 
@@ -40,6 +44,8 @@ const loginPage = {
     loginBtn: "Masuk",
     accountAsk: "Belum memiliki akun? ",
     registerAsk: "Daftar disini",
+    loginLabel: "Selamat Datang Kembali",
+    loginText: "Aktivitasmu sudah menunggu!",
   },
   en: {
     heroTitle: "Organize your various tasks!",
@@ -49,6 +55,8 @@ const loginPage = {
     loginBtn: "Login",
     accountAsk: "Don't have an account yet? ",
     registerAsk: "Register here",
+    loginLabel: "Welcome back",
+    loginText: "Your activity is waiting!",
   },
 };
 
