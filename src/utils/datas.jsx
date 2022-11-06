@@ -144,10 +144,12 @@ const pageEmpty = {
     opps: "Opps, kami tidak dapat menemukan halaman ini.",
     massage:
       "Tapi jangan khawatir, Anda dapat menemukan banyak hal lain diberanda kami.",
+    back: "Kembali",
   },
   en: {
     opps: "Opps, we couldn' find this page.",
     massage: "But don't worry, you can find many other things on our homepage.",
+    back: "Return",
   },
 };
 
