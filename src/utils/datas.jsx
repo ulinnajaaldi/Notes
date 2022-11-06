@@ -85,7 +85,7 @@ const navFront = {
     archive: "Archive",
     home: "Home",
     changeClr: "Change Color Scheme",
-    logout: "Exit",
+    logout: "Logout",
   },
 };
 
